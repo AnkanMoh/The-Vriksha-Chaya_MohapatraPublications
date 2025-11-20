@@ -198,6 +198,9 @@ async def main():
     if chapter_num < 1:
         chapter_num = 1
 
-    outline = """
-    Continue the main story of Arjun and the Vriksha-Pishach.
-    Push the stak
+   outline = """
+Continue the main story of Arjun and the Vriksha-Pishach.
+Push the stakes one level higher than the previous chapter.
+Introduce a new piece of the curse's mythology or a new victim.
+"""
+
