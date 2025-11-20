@@ -191,12 +191,24 @@ async def run_story_cycle(runner: InMemoryRunner, chapter_num: int, outline_text
 async def main():
     runner = InMemoryRunner(agent=story_pipeline, app_name=APP_NAME)
 
-    # simple example: chapter number = days since a fixed start date
+    # Compute chapter number automatically (days since start)
     start_date = datetime(2025, 11, 20).date()
     today = datetime.utcnow().date()
     chapter_num = (today - start_date).days + 1
     if chapter_num < 1:
         chapter_num = 1
 
-   outline = """Continue the main story of Arjun and the Vriksha-Pishach.Push the stakes one level higher than the previous chapter.Introduce a new piece of the curse's mythology or a new victim."""
+    # Outline for the next chapter
+    outline = (
+        "Continue the main story of Arjun and the Vriksha-Pishach. "
+        "Push the stakes one level higher than the previous chapter. "
+        "Introduce a new piece of the curse's mythology or a new victim. "
+        "Make the atmosphere more suffocating, eerie, and claustrophobic."
+    )
+
+    await run_story_cycle(runner, chapter_num, outline)
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
 
